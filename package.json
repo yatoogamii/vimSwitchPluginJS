@@ -1,12 +1,18 @@
 {
   "name": "vimSwitchPLuginJS",
   "version": "1.0.0",
-  "description": "",
+  "description": "Plugin for create, update or remove vim configuration files ( vimrc, .vim )",
   "main": "script.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {},
+  "keywords": [
+    "vim"
+  ],
+  "author": {
+    "name": "Elias Bracaval",
+    "email": "bracaval.elias.pro@gmail.com"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bin": {
+    "vimSwitch": "./cli.js"
+  }
 }
