@@ -69,7 +69,9 @@ async function createVimConfiguation() {
   console.log(`
     new configuration created with name: ${args[1]}
 
-    now use switch command for switch into her
+    now you can:
+      - switch to her
+      - remove her
 
     `);
 }
@@ -89,7 +91,14 @@ async function switchVimConfiguation() {
 
 async function removeVimConfiguation() {
   await checkIfConfigurationFolderIsCreated();
-  console.log("removed");
+  try {
+    await fs.rmdirSync(`${homedir}/.vimConfiguration/${args[1]}/plugged`);
+    await fs.unlinkSync(`${homedir}/.vimConfiguration/${args[1]}/.vimrc`);
+    await fs.rmdirSync(`${homedir}/.vimConfiguration/${args[1]}`);
+    console.log(`La configuration ${args[1]} a bien été supprimée`);
+  } catch (e) {
+    console.log("La configuration que vous voulez effacer n'existe pas");
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////
