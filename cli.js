@@ -20,7 +20,7 @@ const [, , ...args] = process.argv;
         await createVimConfiguration(allConfigName);
         break;
       case "switch":
-        // switchVimConfiguration();
+        await switchVimConfiguration();
         break;
       case "remove":
         await removeVimConfiguration(allConfigName);
@@ -72,6 +72,15 @@ async function createVimConfiguration(allConfigName) {
 ////////////////////////////////////////////////////////////////////////
 //                           switch section                           //
 ////////////////////////////////////////////////////////////////////////
+
+async function switchVimConfiguration() {
+  if (args[1]) {
+    // await fs.copyFileSync(`${homedir}/.vimConfiguration/${args[1]}/vimrc`, `${homedir}/.vimrc`);
+    // await fs.unlinkSync(`${homedir}/.vimConfiguration/${args[1]}/vimrc`);
+  } else {
+    console.log("Veuillez indiquer un nom pour la configuration à switch");
+  }
+}
 
 ////////////////////////////////////////////////////////////////////////
 //                           remove section                           //
